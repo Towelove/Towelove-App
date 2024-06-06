@@ -42,9 +42,9 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="setting"
+        name="account"
         options={{
-          title: '设置',
+          title: '个人',
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),

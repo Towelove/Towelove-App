@@ -53,10 +53,13 @@ const PhotoBox = () => {
     }
   }, [])
   return (
-    <ImageBackground source={current.coverUrl as ImageSourcePropType}   resizeMode="cover" 
-    className='w-full border-[1px] border-solid border-[#A1B6CC] bg-cover  h-[2.4rem] relative overflow-hidden mt-[0.27rem] rounded-[0.2rem]'>
+    <ImageBackground style={{
+      borderColor:'#a1b6cc',
+      borderStyle:'solid'
+    }} source={current.coverUrl as ImageSourcePropType}   resizeMode="cover" 
+    className='w-full bg-cover bg-black min-h-[2.4rem] relative overflow-hidden mt-[0.27rem] '>
       <ScrollView className='absolute backdrop-blur-[10px] overflow-y-auto top-0 flex flex-col right-0 h-full w-[0.6rem]  px-[0.1rem] pt-[0.06rem] pb-[0.14rem]'>
-        {
+        {/* {
           photoUrls.map((item: AlbumsPageRespDTO, index: number) => {
             return <Pressable style={{
               borderStyle: 'solid',
@@ -68,11 +71,11 @@ const PhotoBox = () => {
               <Image source={item.coverUrl as string as ImageSourcePropType } className='w-full object-cover h-full rounded-[0.05rem]' alt="" />
             </Pressable>
           })
-        }
+        } */}
       </ScrollView>
-      <Text className='absolute bottom-[0.1274rem] left-[0.2rem] text-[0.2rem] font-SansitaOne text-white leading-none'>
+      {/* <Text className='absolute bottom-[0.1274rem] left-[0.2rem]  text-white leading-none'>
         {current.title}
-      </Text>
+      </Text> */}
     </ImageBackground>
   )
 }
