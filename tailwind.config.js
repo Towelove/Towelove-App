@@ -10,6 +10,9 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ['Inter'],
+        PoetsenOne: ['PoetsenOne'],
+        loLi: ['loLi'],
+        SansitaOne: ['SansitaOne'],
       },
       colors,
     },

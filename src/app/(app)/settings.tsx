@@ -67,7 +67,7 @@ export default function Settings() {
             />
           </ItemsContainer>
 
-          <View className="my-8">
+          <View className="mt-4">
             <ItemsContainer>
               <Item text="settings.logout" onPress={signOut} />
             </ItemsContainer>

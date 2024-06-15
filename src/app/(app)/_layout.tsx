@@ -28,7 +28,7 @@ const screenOptions:
     backgroundColor: 'white',
     flexShrink: 0,
     shadowColor: 'white',
-    borderWidth: 1,
+    borderTopWidth: 0
   },
   tabBarLabelStyle: {
     color: '#4D5E75',
@@ -66,8 +66,9 @@ export default function TabLayout() {
         options={{
           title: '首页',
           headerTitle: '',
+          headerShown:false,
           tabBarIcon: (state) => <Home state={state} />,
-          headerLeft: () => <CreateHeader />,
+          // headerLeft: () => <CreateHeader />,
           headerShadowVisible: false,
           tabBarTestID: 'feed-tab',
         }}
