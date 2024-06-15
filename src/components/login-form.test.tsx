@@ -41,7 +41,7 @@ describe('LoginForm Form ', () => {
   });
 
   it('Should call LoginForm with correct values when values are valid', async () => {
-    render(<LoginForm onSubmit={onSubmitMock} />);
+    render(<LoginForm />);
 
     const button = screen.getByTestId('login-button');
     const emailInput = screen.getByTestId('email-input');

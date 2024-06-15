@@ -22,14 +22,29 @@ export const showError = (error: AxiosError) => {
   });
 };
 
-export const showErrorMessage = (message: string = 'Something went wrong ') => {
+export const showErrorMessage = (
+  message: string = 'Something went wrong ❌'
+) => {
   showMessage({
     message,
     type: 'danger',
     duration: 4000,
   });
 };
-
+export const showSuccessMessage = (message: string = '成功😄') => {
+  showMessage({
+    message,
+    type: 'success',
+    duration: 4000,
+  });
+};
+export const showInfoMessage = (message: string = '🙅‍') => {
+  showMessage({
+    message,
+    type: 'info',
+    duration: 4000,
+  });
+};
 export const extractError = (data: unknown): string => {
   if (typeof data === 'string') {
     return data;
