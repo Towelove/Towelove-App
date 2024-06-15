@@ -1,15 +1,44 @@
 /* eslint-disable react/no-unstable-nested-components */
-import { Link, Redirect, SplashScreen, Tabs } from 'expo-router';
+import type { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
+import type { ParamListBase, RouteProp } from '@react-navigation/native';
+import HeaderLogo from 'assets/svg/header';
+import { Redirect, SplashScreen, Tabs } from 'expo-router';
 import React, { useCallback, useEffect } from 'react';
+import { View } from 'react-native';
 
 import { useAuth, useIsFirstTime } from '@/core';
-import { Pressable, Text } from '@/ui';
-import {
-  Feed as FeedIcon,
-  Settings as SettingsIcon,
-  Style as StyleIcon,
-} from '@/ui/icons';
-
+import { TouchableOpacity } from '@/ui';
+import { Home, Setting as SettingsIcon } from '@/ui/icons';
+import { Album } from '@/ui/icons/album';
+import { Diary } from '@/ui/icons/diary';
+const screenOptions:
+  | BottomTabNavigationOptions
+  | ((props: {
+      route: RouteProp<ParamListBase, string>;
+      navigation: any;
+    }) => BottomTabNavigationOptions)
+  | undefined = {
+  tabBarStyle: {
+    position: 'absolute',
+    height: 55,
+    paddingTop: 5,
+    paddingHorizontal: 15,
+    borderTopRightRadius: 20,
+    borderTopLeftRadius: 20,
+    backgroundColor: 'white',
+    flexShrink: 0,
+    shadowColor: 'white',
+    borderWidth: 1,
+  },
+  tabBarLabelStyle: {
+    color: '#4D5E75',
+  },
+  tabBarItemStyle: {
+    marginBottom: 8,
+    marginHorizontal: 10,
+  },
+  tabBarButton: (props) => <TouchableOpacity activeOpacity={0.8} {...props} />,
+};
 export default function TabLayout() {
   const status = useAuth.use.status();
   const [isFirstTime] = useIsFirstTime();
@@ -31,13 +60,15 @@ export default function TabLayout() {
     return <Redirect href="/login" />;
   }
   return (
-    <Tabs>
+    <Tabs screenOptions={screenOptions}>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Feed',
-          tabBarIcon: ({ color }) => <FeedIcon color={color} />,
-          headerRight: () => <CreateNewPostLink />,
+          title: '首页',
+          headerTitle: '',
+          tabBarIcon: (state) => <Home state={state} />,
+          headerLeft: () => <CreateHeader />,
+          headerShadowVisible: false,
           tabBarTestID: 'feed-tab',
         }}
       />
@@ -45,18 +76,27 @@ export default function TabLayout() {
       <Tabs.Screen
         name="style"
         options={{
-          title: 'Style',
+          title: '恋爱相册',
           headerShown: false,
-          tabBarIcon: ({ color }) => <StyleIcon color={color} />,
+          tabBarIcon: (state) => <Album state={state} />,
+          tabBarTestID: 'style-tab',
+        }}
+      />
+      <Tabs.Screen
+        name="diary"
+        options={{
+          title: '恋爱日记',
+          headerShown: false,
+          tabBarIcon: (state) => <Diary state={state} />,
           tabBarTestID: 'style-tab',
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'Settings',
+          title: '设置',
           headerShown: false,
-          tabBarIcon: ({ color }) => <SettingsIcon color={color} />,
+          tabBarIcon: (state) => <SettingsIcon state={state} />,
           tabBarTestID: 'settings-tab',
         }}
       />
@@ -64,12 +104,10 @@ export default function TabLayout() {
   );
 }
 
-const CreateNewPostLink = () => {
+const CreateHeader = () => {
   return (
-    <Link href="/feed/add-post" asChild>
-      <Pressable>
-        <Text className="px-3 text-primary-300">Create</Text>
-      </Pressable>
-    </Link>
+    <View className="pl-4">
+      <HeaderLogo />
+    </View>
   );
 };

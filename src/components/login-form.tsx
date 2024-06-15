@@ -123,7 +123,7 @@ export const LoginForm = () => {
     });
   };
   return (
-    <View className="flex-1 justify-center bg-blue-100 p-4">
+    <View className="flex-1 justify-center p-4">
       <Text testID="form-title" className="pb-6 text-center text-2xl font-bold">
         登录
       </Text>
