@@ -11,28 +11,29 @@ import MsgRabbitBg from 'assets/svg/msg-rabbit-bg';
 export const RabbitMsg = (props: MsgProps) => {
   return (
     <View
-      style={{ width: 161.8 }}
+      style={{ width: 161.8 ,height:165}}
       className={`${props.className ? props.className : ''} relative`}
     >
-      <MsgRabbitBg className='w-full'/>
+      <MsgRabbitBg className="w-full" />
       <View className="absolute top-0 left-0 w-full h-full flex flex-row justify-center items-center">
-        <Text
+        <View
           style={{ paddingHorizontal: 16, marginTop: 64, height: 80 }}
           className=" w-full"
         >
-          <Text
-            style={{ color: '#4D5E75', fontSize: 14 }}
-            className="flex flex-col"
+          <View
+            className="flex flex-col relative"
           >
-            {props.content}
+            <Text style={{ color: '#4D5E75', fontSize: 14 }}>
+              {props.content}
+            </Text>
             <Text
-              style={{ color: '#95A4B9', fontSize: 10, bottom: 16, right: 24 }}
-              className="w-full absolute text-end"
+              style={{ color: '#95A4B9', fontSize: 10, bottom: -16, right: 4,marginLeft:'auto' }}
+              className="absolute"
             >
               {formatMsgTime(props.createTime)}
             </Text>
-          </Text>
-        </Text>
+          </View>
+        </View>
       </View>
       <Avatar
         style={{ top: -8, right: -3.2 }}

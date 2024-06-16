@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-import { ScrollView, Text } from '@/ui';
+import {  Text } from '@/ui';
 import { Image, ImageBackground } from 'expo-image';
 import { Pressable } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 type Props = {};
 

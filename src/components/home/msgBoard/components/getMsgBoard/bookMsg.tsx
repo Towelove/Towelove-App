@@ -7,26 +7,31 @@ import { MsgProps, testAvatar } from './index';
 
 export const BookMsg = (props: MsgProps) => {
   return (
-    <View style={{ width: 183 }} className={`relative`}>
+    <View style={{ width: 183,height:185 }} className={`${props.className} relative`}>
       <MsgBookBg />
-      <Text
+      <View
         style={{
-          color: '#4D5E75',
-          fontSize: 14,
           paddingLeft: 40,
           paddingRight: 24,
           paddingTop: 64,
         }}
-        className=" absolute top-0 left-0  w-full h-full "
+        className=" absolute top-0 left-0  w-full "
       >
-        {props.content}
         <Text
-          style={{ bottom: 32, right: 24, color: '#95a4b9', fontSize: 10 }}
+          style={{
+            color: '#4D5E75',
+            fontSize: 14,
+          }}
+        >
+          {props.content}
+        </Text>
+        <Text
+          style={{ bottom: -18, right: 30, color: '#95a4b9', fontSize: 10 }}
           className="absolute"
         >
           {formatMsgTime(props.createTime)}
         </Text>
-      </Text>
+      </View>
       <Avatar
         style={{ top: 16, right: -11.2 }}
         avatar={props.avatar ? props.avatar : testAvatar}

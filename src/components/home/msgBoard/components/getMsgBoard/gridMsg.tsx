@@ -11,36 +11,40 @@ export const GridMsg = (props: MsgProps) => {
   return (
     <View
       style={{
-        width: 232,
-        height: 80,
-        paddingTop: 4,
+        width: 160,
+        height: 160,
+        // marginTop: 35,
+        paddingTop: 14,
         paddingLeft: 12,
-        paddingRight: 64,
-        borderColor: '#ffede6',
-        borderRadius: 8,
+        paddingRight: 25,
+        borderColor: '#A1B6CC',
+        borderWidth:1,
+        backgroundColor: '#ffede6',
+        borderRadius: 22,
+        position:'relative'
       }}
-      className={`${props.className ? props.className : ''} relative`}
+      className={`${props.className ? props.className : ''} relative overflow-visible`}
     >
-      <BottomRabbit className="absolute bottom-0 left-0 w-full z-10" />
+      <BottomRabbit style={{zIndex:1}} className="absolute bottom-0 left-0 right-0 mx-auto ml-3 mr-auto" />
       <MsgGridBg className="absolute w-full h-full top-0 left-0" />
       <Avatar
         style={{
           top: -17.6,
-          right: -176,
+          right: -17.6,
         }}
         avatar={props.avatar?props.avatar: testAvatar}
       />
-      <Text className="w-full  relative">
+      <View className="w-full relative">
         <Text style={{ color: '#4D5E75', fontSize: 14 }} className="">
           {props.content}
         </Text>
         <Text
-          style={{ color: '#95A4B9', fontSize: 10, bottom: 8 }}
+          style={{ color: '#95A4B9', fontSize: 10, bottom: -16 }}
           className="absolute right-0"
         >
           {formatMsgTime(props.createTime)}
         </Text>
-      </Text>
+      </View>
     </View>
   );
 };

@@ -5,6 +5,7 @@ import { Image } from 'expo-image';
 import Ranbow from 'assets/svg/ranbow';
 import CloudAdd from 'assets/svg/cloud-add';
 import { MsgCard } from './components/getMsgBoard';
+import { ScrollView } from 'react-native-gesture-handler';
 
 type Props = {};
 const msgList = [
@@ -24,52 +25,82 @@ const msgList = [
   },
   {
     avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
-    content: 'Designer Avatar Image',
+    content: 'Job Avatar Images',
     createTime: '2024-05-11 20:20',
+    id: '1',
+    dialogStyle: 1
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Job Avatar Images',
+    createTime: '2023-05-11 20:20',
+    id: '1',
+    dialogStyle: 1
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Designer Avatar Image',
+    createTime: '2023-05-11 20:20',
     id: '3',
     dialogStyle:3
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Job Avatar Images',
+    createTime: '2023-05-11 20:20',
+    id: '1',
+    dialogStyle: 1
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Designer Avatar Image',
+    createTime: '2023-05-11 20:20',
+    id: '3',
+    dialogStyle:3
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Designer Avatar Image',
+    createTime: '2023-05-11 20:20',
+    id: '3',
+    dialogStyle:3
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Designer Avatar Image',
+    createTime: '2023-05-11 20:20',
+    id: '3',
+    dialogStyle:3
+  },
+  {
+    avatarUrl: 'https://avatar.iran.liara.run/public/job/doctor/female',
+    content: 'Job Avatar Images',
+    createTime: '2023-05-11 20:20',
+    id: '1',
+    dialogStyle: 1
   },
 ];
 export const MsgBoard = ({}: Props) => {
   return (
-    <View
+    <ScrollView
       style={{
         // bg-[linear-gradient(180deg,#FFE5F3_-22.33%,#FFFBFD_51.54%)]
-        backgroundColor: '#FFE5F322',
+        backgroundColor: '#fff5fa',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
-        marginTop: 90,
-        paddingHorizontal: 24,
+        // marginTop: 90,
+        paddingTop:20,
+        // paddingHorizontal: 24,
+        paddingLeft: 24,
+        paddingRight: 12
       }}
-      className="w-full relative  min-h-screen"
+      className="w-full h-full relative overflow-visible  min-h-screen"
     >
-      <View
-        style={{ width: 139, height: 149, top: -63, right: 25, zIndex: 10 }}
-        className="absolute"
-      >
-        {/* <Image className='w-full h-full' src={ranbow} alt="" /> */}
-        <Ranbow className="w-full h-full" />
-        {/* <Image src={add} className='absolute w-[0.53rem] h-[0.36rem] bottom-[-0rem] left-[0.582rem] cursor-pointer' alt="" /> */}
-        <CloudAdd
-          style={{
-            width: 53,
-            height: 36,
-            bottom: 0,
-            left: 58.2,
-          }}
-          className="absolute"
-        />
-      </View>
-      {/* <Image
-        className="absolute top-0 left-0 ring-0 bottom-0 w-[50%] ml-[20%] mr-[25%] mt-[10%]"
-        src={bg}
-        alt=""
-      /> */}
-      <View className="flex flex-wrap flex-row w-full pb-[0.6rem] gap-[0.4rem] items-center ">
+      <View style={{marginTop:35,paddingBottom:250,gap:40}} className="flex flex-wrap flex-row w-full overflow-visible items-center ">
         {msgList.map((item: any, index) => {
           return (
             <MsgCard
-              className={(index + 1) % 2 === 0 ? 'ml-auto' : ''}
+              className={(index + 1) % 2 === 0 ? 'ml-auto mr-5' : ''}
               key={`msgBoard-${index}`}
               avatar={item.avatarUrl}
               style={item.dialogStyle}
@@ -82,6 +113,6 @@ export const MsgBoard = ({}: Props) => {
         })}
       </View>
       {/* <Dialog open={open} setOpen={setOpen} onFinish={handleFinish} /> */}
-    </View>
+    </ScrollView>
   );
 };
