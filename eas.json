@@ -83,6 +83,9 @@
       "cache": {
         "key": "eas-1"
       }
+    },
+    "preview": {
+      "distribution": "internal"
     }
   },
   "submit": {
